@@ -1,4 +1,4 @@
-<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my homepage on the Internet! ¯\_(ツ)_/¯
+<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my homeon the Internet! <em>¯\_(ツ)_/¯</em>
 
 ##### <a href="https://man.openbsd.org/whoami.1">whoami</a>?
 
@@ -13,5 +13,11 @@ I'm fascinated by <a href="https://naolduga.keybase.pub/old_docs/TheVirtualizati
 Since graduating in 2007 with a degree in engineering, I've done diverse <a href="https://linkedin.com/in/naolduga">work</a> both in academia and industry.
 
 At present I do business and independent R&D at <a href="http://synestate.com">Synestate</a> (based in Brooklyn, New York).
+
+##### Contact
+<p>
+Send an email to <code>root</code> AT <code>synestate.com</code>. (Wanna send me TOP SECRET stuff?! :-) Try PGP: D9A10698C7AE419C) 
+
+<!-- You can find me on <a href="https://medium.com/@NaolDuga">Medium</a> and <a href="https://twitter.com/naolduga">Twitter</a> too. -->
 
 <hr>

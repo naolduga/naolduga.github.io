@@ -14,7 +14,7 @@ I'm fascinated by <a href="https://naolduga.keybase.pub/old_docs/TheVirtualizati
 
 Since graduating in 2007 with a degree in engineering, I've done diverse <a href="https://linkedin.com/in/naolduga">work</a> both in academia and industry.
 
-At present I do business and independent R&D at <a href="http://synestate.com">Synestate</a> (based in Brooklyn, New York).
+At present I do business (and independent R&D) as <a href="http://synestate.com">Synestate</a> (based in Brooklyn, New York).
 </p>
 
 <hr>

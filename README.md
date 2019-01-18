@@ -1,4 +1,4 @@
-<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my homeon the Internet! <code>¯\\\_(ツ)_/¯</code>
+<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my home on the Internet!
 
 <hr>
 
@@ -16,11 +16,10 @@ Since graduating in 2007 with a degree in engineering, I've done diverse <a href
 
 At present I do business and independent R&D at <a href="http://synestate.com">Synestate</a> (based in Brooklyn, New York).
 
-<hr>
-
 ##### Contact
+
 <p>
-📧 <code>root</code> AT <code>synestate.com</code>. For TOP SECRET stuff, try <a href="https://xkcd.com/1181/">PGP</a>: <code>D9A10698C7AE419C</code>. 😎
+📧 <code>root</code> AT <code>synestate.com</code>. [For TOP SECRET stuff, try <a href="https://xkcd.com/1181/">PGP</a>: <code>D9A10698C7AE419C</code>.] 😎
 <br>
 
 <a href="https://twitter.com/naolduga">Twitter</a>

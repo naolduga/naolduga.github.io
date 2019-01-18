@@ -1,4 +1,4 @@
-<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my home on the Internet!
+<img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world!<br>Welcome to my home on the Internet!
 
 <hr>
 
@@ -22,7 +22,8 @@ At present I do business and independent R&D at <a href="http://synestate.com">S
 ##### Contact
 
 <p>
-📧 <code>root</code> AT <code>synestate.com</code>.<br>[TOP SECRET stuff? Try <a href="https://xkcd.com/1181/">PGP</a>: <code>D9A10698C7AE419C</code> 😎]
+📧 <code>root</code> AT <code>synestate.com</code>
+<br>[TOP SECRET stuff? 😎 Try <a href="https://xkcd.com/1181/">PGP</a>: <code>D9A10698C7AE419C</code>]
 <br><br>
 
 <a href="https://twitter.com/naolduga">Twitter</a>

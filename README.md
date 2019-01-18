@@ -1,6 +1,6 @@
 <img src="https://naolduga.keybase.pub/images/n.jpg" title="Naol Duga Jebessa (Image Courtesy of Money20/20)" align="center" height="42px"> Hello, world! Welcome to my homepage on the Internet! ¯\_(ツ)_/¯
 <hr>
-# Who am I?
+##### <a href="https://man.openbsd.org/whoami.1">whoami</a>?
 <p>
 
 I'm a programmer who's been navigating the <a href="https://github.com/naolduga/bitcoin">bitcoin</a> space for 6+ years.

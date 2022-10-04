@@ -9,7 +9,7 @@ Since graduating in 2007 with a degree in engineering, I've done diverse <a href
 
 In 2013/4 I created <a href="http://bitgadaa.org">BitGadaa</a> based on the <a href="https://naolduga.com/TelosVM">TelosVM</a> concept from my PhD years (at the University of Amsterdam; I've since dropped out). I've been studying <a href="https://github.com/naolduga/bitcoin">bitcoin</a> for 8+ years. I'm fascinated by <a href="https://naolduga.keybase.pub/old_docs/TheVirtualizationLandscape.pdf">virtual</a> <a href="http://ceur-ws.org/Vol-965/paper02-essos2013.pdf">machine</a>ry and computational <a href="https://plato.stanford.edu/entries/agency/">agency</a>, esp. when the <a href="https://github.com/naolduga/awesome-blockchain">blockchain</a> paradigm meets <a href="https://en.wikipedia.org/wiki/Software_agent">software agents</a>.
 
-Currently I work on payments and merchant processing technology at a bulge bracket bank.
+Currently I work on payments at a bulge bracket bank.
 
 <hr>
 

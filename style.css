@@ -9,7 +9,17 @@
     /* Sage grey for subtle elements */
     --code-font: 'Input Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
     --serif-font: 'Georgia', 'Times New Roman', Times, serif;
+    --bg-rgb: 253, 250, 246;
 }
+
+[data-theme="dark"] {
+    --bg: #2c2421;
+    --text: #fdfaf6;
+    --accent: #d48a6a;
+    --muted: #a3b099;
+    --bg-rgb: 44, 36, 33;
+}
+
 
 * {
     box-sizing: border-box;

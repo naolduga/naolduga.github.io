@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Promise Games, 12 Years On — Naol Duga Jebessa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#E7EBEA;
+    --paper-2:#F0F2F1;
+    --ink:#13222B;
+    --navy:#1C4A5E;        /* kept · 1 */
+    --oxblood:#A53F29;     /* not kept · 0 */
+    --ochre:#B0822A;       /* unknown */
+    --muted:#586A70;
+    --hair:rgba(19,34,43,.14);
+    --hair-2:rgba(19,34,43,.08);
+    --serif:'Spectral', Georgia, 'Times New Roman', serif;
+    --display:'Fraunces', Georgia, serif;
+    --mono:'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:1.165rem;
+    line-height:1.64;
+    font-weight:400;
+    /* faint graph-paper texture: nod to the paper's network figures */
+    background-image:
+      radial-gradient(var(--hair-2) 1px, transparent 1.2px);
+    background-size:26px 26px;
+    background-position:-13px -13px;
+  }
+  ::selection{background:rgba(28,74,94,.18);}
+
+  a{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(28,74,94,.35);}
+  a:hover{border-bottom-color:var(--navy);}
+  a:focus-visible, .chip:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:2px;}
+
+  /* ---------- shell ---------- */
+  .wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem;}
+  .col{max-width:39rem;}            /* reading measure */
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    padding:5.5rem 0 2.2rem;
+    overflow:hidden;
+  }
+  .hero-net{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    opacity:.5;
+    pointer-events:none;
+    z-index:0;
+    -webkit-mask-image:linear-gradient(180deg, #000 38%, transparent 96%);
+            mask-image:linear-gradient(180deg, #000 38%, transparent 96%);
+  }
+  .hero > .wrap{position:relative;z-index:1;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.74rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 1.5rem;
+  }
+  h1.title{
+    font-family:var(--display);
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(2.6rem, 6.4vw, 4.6rem);
+    line-height:1.02;
+    letter-spacing:-.012em;
+    margin:0 0 1.1rem;
+    max-width:16ch;
+  }
+  h1.title em{font-style:italic;font-weight:400;color:var(--navy);}
+  .dek{
+    font-family:var(--serif);
+    font-size:1.28rem;
+    line-height:1.5;
+    color:#33464d;
+    max-width:34rem;
+    margin:0 0 2rem;
+  }
+  .byline{
+    font-family:var(--mono);
+    font-size:.78rem;
+    letter-spacing:.04em;
+    color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;align-items:center;
+    border-top:1px solid var(--hair);
+    border-bottom:1px solid var(--hair);
+    padding:.85rem 0;
+    max-width:39rem;
+  }
+  .byline b{color:var(--ink);font-weight:500;}
+  .byline .dot{color:var(--hair);}
+
+  /* ---------- article ---------- */
+  main{padding:2.4rem 0 4rem;}
+  section.block{position:relative;margin:0 0 1rem;}
+  .kicker{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    margin:2.8rem 0 .9rem;
+    display:flex;align-items:center;gap:.7rem;
+  }
+  .kicker::before{
+    content:"";width:1.6rem;height:1px;background:var(--oxblood);opacity:.6;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.7rem,3.6vw,2.3rem);
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:.2rem 0 1.1rem;
+    max-width:24ch;
+  }
+  h3{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:1.18rem;
+    margin:0 0 .25rem;
+    letter-spacing:-.005em;
+  }
+  p{margin:0 0 1.25rem;}
+  p.lead{font-size:1.22rem;}
+
+  /* drop cap */
+  .dropcap::first-letter{
+    font-family:var(--display);
+    font-weight:500;
+    float:left;
+    font-size:4.6rem;
+    line-height:.78;
+    padding:.32rem .14em 0 0;
+    color:var(--navy);
+  }
+
+  em{font-style:italic;}
+  strong{font-weight:600;}
+  code, .mono{font-family:var(--mono);font-size:.86em;}
+  .term{font-family:var(--mono);font-size:.84em;color:var(--navy);background:rgba(28,74,94,.07);padding:.04em .34em;border-radius:3px;white-space:nowrap;}
+  a.term{border-bottom:1px dotted rgba(28,74,94,.55);}
+  a.term:hover{border-bottom-style:solid;background:rgba(28,74,94,.12);}
+
+  /* ---------- sidenotes (Tufte-style) ---------- */
+  .snmark{
+    font-family:var(--mono);
+    font-size:.7em;
+    vertical-align:super;
+    line-height:0;
+    color:var(--oxblood);
+    cursor:default;
+    padding-left:.05em;
+  }
+  .sidenote{
+    float:right;
+    clear:right;
+    width:13.5rem;
+    margin-right:-15.5rem;
+    margin-top:.25rem;
+    margin-bottom:1rem;
+    font-family:var(--serif);
+    font-size:.86rem;
+    line-height:1.5;
+    color:var(--muted);
+    border-top:1px solid var(--hair);
+    padding-top:.5rem;
+  }
+  .sidenote .sn-n{font-family:var(--mono);font-size:.78em;color:var(--oxblood);margin-right:.45em;}
+  .sidenote b{color:#33464d;font-weight:600;}
+
+  /* ---------- pull quote ---------- */
+  blockquote.pull{
+    margin:2.2rem 0;
+    padding:0 0 0 1.4rem;
+    border-left:2px solid var(--navy);
+    font-family:var(--display);
+    font-weight:400;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.32;
+    color:var(--ink);
+    max-width:33rem;
+  }
+
+  /* ---------- figures ---------- */
+  figure{
+    margin:2.4rem 0;
+    max-width:39rem;
+  }
+  figure.wide{max-width:46rem;}
+  .figframe{
+    background:var(--paper-2);
+    border:1px solid var(--hair);
+    border-radius:6px;
+    padding:1.6rem 1.4rem 1.2rem;
+  }
+  figcaption{
+    font-family:var(--mono);
+    font-size:.74rem;
+    letter-spacing:.02em;
+    color:var(--muted);
+    margin-top:.8rem;
+    line-height:1.5;
+  }
+  figcaption b{color:#33464d;font-weight:500;}
+  svg{display:block;width:100%;height:auto;}
+  .svg-label{font-family:var(--mono);font-size:11px;fill:var(--muted);letter-spacing:.02em;}
+  .svg-node{font-family:var(--mono);font-size:12px;fill:#fff;font-weight:500;}
+  .svg-title{font-family:'Fraunces',serif;font-size:15px;fill:var(--ink);font-style:italic;}
+
+  /* ---------- code listing ---------- */
+  pre.code{
+    font-family:var(--mono);
+    font-size:.82rem;
+    line-height:1.55;
+    background:var(--ink);
+    color:#cfe0e2;
+    border-radius:6px;
+    padding:1.1rem 1.2rem;
+    overflow-x:auto;
+    margin:1.6rem 0;
+    max-width:39rem;
+  }
+  pre.code .k{color:#8fb9c4;}
+  pre.code .s{color:#c9a86b;}
+  pre.code .c{color:#5e7177;font-style:italic;}
+
+  /* ---------- scorecard (signature) ---------- */
+  .scorelead{max-width:39rem;}
+  .cards{display:grid;gap:1rem;max-width:46rem;margin:1.8rem 0 1rem;}
+  .card{
+    background:var(--paper-2);
+    border:1px solid var(--hair);
+    border-left:3px solid var(--st);
+    border-radius:6px;
+    padding:1.05rem 1.2rem;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:.2rem 1.1rem;
+    align-items:start;
+  }
+  .state{
+    grid-row:1 / span 2;
+    align-self:start;
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--st);
+    padding:.3rem .55rem;
+    border-radius:3px;
+    margin-top:.2rem;
+    white-space:nowrap;
+    display:inline-flex;align-items:center;gap:.4rem;
+  }
+  .state .glyph{font-size:.9rem;line-height:1;}
+  .card.kept{--st:var(--navy);}
+  .card.broken{--st:var(--oxblood);}
+  .card.unknown{--st:var(--ochre);border-left-style:dashed;}
+  .card h3{margin-bottom:.15rem;}
+  .card p{margin:0;font-size:1.02rem;line-height:1.5;color:#2b3c43;}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--hair);
+    margin-top:3rem;
+    padding:2.2rem 0 4rem;
+  }
+  .cite{
+    font-family:var(--serif);
+    font-size:.95rem;
+    color:var(--muted);
+    max-width:39rem;
+    line-height:1.55;
+  }
+  .cite .ttl{font-style:italic;color:#33464d;}
+  .sig{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:1.25rem;
+    color:var(--navy);
+    margin-top:1.6rem;
+  }
+
+  /* ---------- responsive: collapse sidenotes inline ---------- */
+  @media (max-width: 60rem){
+    .sidenote{
+      float:none;
+      width:auto;
+      margin:1rem 0 1.4rem;
+      background:var(--paper-2);
+      border:1px solid var(--hair);
+      border-top:1px solid var(--hair);
+      border-radius:5px;
+      padding:.75rem .9rem;
+    }
+  }
+  @media (max-width: 40rem){
+    body{font-size:1.08rem;}
+    header.hero{padding:3.4rem 0 1.4rem;}
+    .dropcap::first-letter{font-size:3.8rem;}
+    blockquote.pull{font-size:1.28rem;}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .draw{stroke-dasharray:var(--len,400);stroke-dashoffset:var(--len,400);animation:draw 1.5s ease forwards;}
+    .draw.d2{animation-delay:.25s;}
+    .draw.d3{animation-delay:.5s;}
+    .fadein{opacity:0;animation:fade .9s ease forwards;}
+    .fadein.f2{animation-delay:.5s;}
+    .fadein.f3{animation-delay:.8s;}
+    @keyframes draw{to{stroke-dashoffset:0;}}
+    @keyframes fade{to{opacity:1;}}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <!-- ambient promise-network backdrop, echoing the paper's Figure 3 -->
+  <svg class="hero-net" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="var(--oxblood)" stroke-width="1" fill="none" opacity=".5">
+      <path d="M180 90 L360 180"/><path d="M360 180 L300 300"/><path d="M360 180 L520 130"/>
+      <path d="M520 130 L700 200"/><path d="M700 200 L640 320"/><path d="M700 200 L880 150"/>
+      <path d="M880 150 L1040 240"/><path d="M520 130 L460 260"/><path d="M880 150 L820 300"/>
+      <path d="M300 300 L520 130"/><path d="M640 320 L820 300"/><path d="M1040 240 L1120 110"/>
+      <path d="M180 90 L300 300"/><path d="M700 200 L460 260"/>
+    </g>
+    <g fill="var(--navy)">
+      <circle cx="180" cy="90" r="6"/><circle cx="360" cy="180" r="8"/><circle cx="300" cy="300" r="6"/>
+      <circle cx="520" cy="130" r="9"/><circle cx="700" cy="200" r="10"/><circle cx="640" cy="320" r="6"/>
+      <circle cx="880" cy="150" r="8"/><circle cx="1040" cy="240" r="7"/><circle cx="460" cy="260" r="6"/>
+      <circle cx="820" cy="300" r="6"/><circle cx="1120" cy="110" r="5"/>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <p class="eyebrow">Retrospective &middot; Distributed systems &middot; 2014 &rarr; 2026</p>
+    <h1 class="title">Promise Games, <em>12 Years On</em></h1>
+    <p class="dek">In early 2014 I wrote a short <a href="keybase://public/naolduga/old_docs/ASCI_A9_N.D.Jebessa_P2P_Web_of_Trust_Calculi_and_Promise_Games.pdf">paper</a> about trust, autonomous agents, and a
+      blockchain that hadn&rsquo;t launched yet. Here it is &mdash; graded with the very
+      three&#8209;state automaton it proposed: kept, not kept, or, honestly, still unknown.</p>
+    <div class="byline">
+      <span><b>Naol Duga &amp; Claude</b></span><span class="dot">&bull;</span>
+      <span>Amsterdam, then home</span><span class="dot">&bull;</span>
+      <span>Spring 2026</span><span class="dot">&bull;</span>
+      <span>11 min read</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+  <div class="col">
+
+    <!-- 1 -->
+    <section class="block">
+      <p class="kicker">Where it came from</p>
+      <p class="lead dropcap">The paper was coursework. I remember the deadline more vividly
+      than any of its insights: it was a submission to the <a href="https://web.archive.org/web/20131101121846/http://www.asci.tudelft.nl/pages/courses.php?course_id=10">ASCI A9 PhD course on
+      distributed&#8209;systems design</a><span class="snmark">1</span>, eight pages of ambition
+      typeset in a hurry. I gave it a grand title &mdash; <em>P2P Web of Trust Calculi and
+      Promise Games</em> &mdash; and an even grander framework, TelosVM, which I described
+      with a straight face as &ldquo;computation as social agency.&rdquo;
+      <span class="sidenote"><span class="sn-n">1</span> ASCI &mdash; the Dutch research
+      school for Advanced Computing and Imaging. The A9 course was where you went to argue
+      about consensus, replication, and naming until the coffee ran out.</span></p>
+
+      <p>I want to be fair to the version of me who wrote it, and also honest. He was
+      swimming in a particular water. Down the corridor, people were building
+      <a class="term" href="https://www.cs.vu.nl/~ast/Publications/Papers/mass-2004.pdf">Mansion</a>, an agent operating system &mdash; a whole world
+      modelled as rooms an autonomous agent could walk between<span class="snmark">2</span>.
+      Promise theory was drifting over from Bergstra and Burgess&rsquo; static
+      papers<span class="snmark">3</span>. Every sysadmin I knew was running CFEngine and
+      talking about <em>convergent operators</em>. And in a logic seminar across town, van
+      Benthem was saying out loud that computation could be read as social
+      agency<span class="snmark">4</span> &mdash; which felt, at the time, like permission.
+      <span class="sidenote"><span class="sn-n">2</span> <b>Mansion</b> was the kind of
+      system that taught you to think of programs as <em>agents with addresses and
+      intentions</em>, not just call stacks. That habit of mind is all over this paper.</span>
+      <span class="sidenote"><span class="sn-n">3</span> Bergstra &amp; Burgess,
+      <b><i>A static theory of promises</i></b> (2008) and <b><i>Local and global trust based
+      on the concept of promises</i></b> (2009). Their move: define trust from
+      <em>promises</em>, not from actions.</span></p>
+
+      <p>And then there was <a href="https://ethereum.org">Ethereum</a>. Not a platform &mdash; a proof of concept. A whitepaper
+      and a promise, in the most literal sense: a thing that did not yet exist, asking to be
+      trusted. So I wrote about DAOs<span class="snmark">5</span> before there were DAOs, and
+      called the experiment the CFEther.
+      <span class="sidenote"><span class="sn-n">4</span> van Benthem, <b><i>Computation as
+      social agency</i></b> (2013). The phrase I borrowed for the abstract, slightly
+      oversold.</span>
+      <span class="sidenote"><span class="sn-n">5</span> &ldquo;Distributed autonomous
+      organizations.&rdquo; In 2014 the term was a gleam in a forum post. Ethereum mainnet
+      didn&rsquo;t launch until July 2015.</span></p>
+    </section>
+
+    <!-- 2 -->
+    <section class="block">
+      <p class="kicker">The idea, plainly</p>
+      <h2>One stubborn axiom, and everything that hangs off it</h2>
+
+      <p>Strip away the notation and the paper rests on a single borrowed claim from promise
+      theory: <strong>an agent can promise only its own behaviour.</strong> You cannot impose
+      an obligation on someone from the outside; you can only make a promise, and watch.
+      I drew promises as what they are &mdash; typed, directed arrows from a promiser to a
+      promisee, made only inside a context.</p>
+
+      <figure>
+        <div class="figframe">
+          <svg viewBox="0 0 520 170" role="img" aria-label="A promise: agent a3 promises agent a4, of type brown, in a context phi">
+            <defs>
+              <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="var(--oxblood)"/>
+              </marker>
+            </defs>
+            <circle cx="95" cy="92" r="30" fill="var(--navy)"/>
+            <text x="95" y="97" text-anchor="middle" class="svg-node">a&#8323;</text>
+            <circle cx="425" cy="92" r="30" fill="var(--navy)"/>
+            <text x="425" y="97" text-anchor="middle" class="svg-node">a&#8324;</text>
+            <path class="draw" style="--len:300" d="M127 84 C 210 50, 310 50, 393 84"
+                  fill="none" stroke="var(--oxblood)" stroke-width="2" marker-end="url(#ah)"/>
+            <text x="260" y="40" text-anchor="middle" class="svg-title">&pi;&#8327;</text>
+            <text x="260" y="120" text-anchor="middle" class="svg-label">type: brown</text>
+            <text x="260" y="138" text-anchor="middle" class="svg-label">context: c&#8321; &middot; (c&#8322; | c&#8323;) &middot; &not;c&#8324;</text>
+          </svg>
+        </div>
+        <figcaption><b>A promise.</b> Directed, typed, and conditional on a context formula.
+          Only the promiser controls whether it is kept &mdash; everyone else just observes.</figcaption>
+      </figure>
+
+      <p>A whole governing policy was then a <em>program</em> of these promises, written in a
+      little CFEngine&#8209;flavoured language I called &lambda;. A system was a
+      <em>universe</em> of agents keeping or breaking them. Here is the shape of one promise
+      body, lifted from the paper:</p>
+
+      <pre class="code"><span class="c"># promise &pi;7 : a3 promises a4, in context, conditional on &pi;2</span>
+<span class="k">brown:</span>
+  c1&amp;(c2|c3)&amp;!c4::
+  <span class="s">"a3"</span> -&gt; <span class="s">"a4"</span>
+    handle     =&gt; <span class="s">"p7"</span>,
+    depends_on =&gt; <span class="s">"p2"</span>;   <span class="c"># i.e. &pi;7 / &pi;2</span></pre>
+
+      <p>The part I&rsquo;m still quietly proud of is the <strong>promise automaton</strong>.
+      Every promise had three states, not two. Kept. Not kept. And &mdash; when the promise
+      wasn&rsquo;t even made, or its dependencies hadn&rsquo;t resolved, or nobody had looked
+      yet &mdash; <em>unknown</em>. I treated that third value as a first&#8209;class citizen.
+      In hindsight it&rsquo;s the most honest thing in the whole document.</p>
+
+      <figure>
+        <div class="figframe">
+          <svg viewBox="0 0 520 96" role="img" aria-label="Three states: 1 kept, 0 not kept, unknown">
+            <g class="fadein">
+              <rect x="20" y="26" rx="8" width="150" height="44" fill="var(--navy)"/>
+              <text x="95" y="53" text-anchor="middle" class="svg-node">1 &middot; kept</text>
+            </g>
+            <g class="fadein f2">
+              <rect x="185" y="26" rx="8" width="150" height="44" fill="var(--oxblood)"/>
+              <text x="260" y="53" text-anchor="middle" class="svg-node">0 &middot; not kept</text>
+            </g>
+            <g class="fadein f3">
+              <rect x="350" y="26" rx="8" width="150" height="44" fill="none"
+                    stroke="var(--ochre)" stroke-width="2" stroke-dasharray="6 5"/>
+              <text x="425" y="53" text-anchor="middle" class="svg-label" style="fill:var(--ochre);font-size:12px">unknown</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>The promise automaton.</b> Re&#8209;evaluated each time the engine runs.
+          Most real promises, most of the time, sit in the dashed box.</figcaption>
+      </figure>
+
+      <p>Out of all this, <em>trust</em> was supposed to emerge: not as a number you were
+      issued, but as something observed, accumulated, and &mdash; crucially &mdash;
+      <strong>typed and contextual</strong>. The thesis sentence I&rsquo;d still defend is
+      that a system should be able to say <em>who trusts whom, for what, in which context,
+      and by how much</em>. Not one global reputation score. A different trust for treasury
+      decisions than for security ones.</p>
+
+      <figure>
+        <div class="figframe">
+          <svg viewBox="0 0 520 230" role="img" aria-label="A small typed web of trust with a sybil node carrying no inbound trust">
+            <defs>
+              <marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="2.5" orient="auto">
+                <path d="M0,0 L6,2.5 L0,5 Z" fill="var(--oxblood)"/>
+              </marker>
+            </defs>
+            <!-- edges (width ~ trust weight) -->
+            <g fill="none" stroke="var(--oxblood)" marker-end="url(#ah2)" opacity=".75">
+              <path class="draw" style="--len:200" d="M118 60 C 170 70, 200 84, 236 96" stroke-width="3.4"/>
+              <path class="draw d2" style="--len:200" d="M118 70 C 150 120, 175 150, 205 168" stroke-width="2.2"/>
+              <path class="draw d2" style="--len:200" d="M268 104 C 300 110, 330 116, 360 122" stroke-width="2.6"/>
+              <path class="draw d3" style="--len:200" d="M230 176 C 280 168, 320 150, 356 134" stroke-width="1.6"/>
+              <path class="draw d3" style="--len:200" d="M386 132 C 360 100, 320 96, 280 100" stroke-width="1.4"/>
+            </g>
+            <!-- nodes -->
+            <g>
+              <circle cx="92" cy="56" r="26" fill="var(--ink)"/><text x="92" y="60" text-anchor="middle" class="svg-node">found</text>
+              <circle cx="252" cy="100" r="28" fill="var(--navy)"/><text x="252" y="104" text-anchor="middle" class="svg-node">alice</text>
+              <circle cx="386" cy="128" r="24" fill="var(--navy)"/><text x="386" y="132" text-anchor="middle" class="svg-node">bob</text>
+              <circle cx="212" cy="182" r="22" fill="var(--navy)"/><text x="212" y="186" text-anchor="middle" class="svg-node">carol</text>
+              <!-- sybil: no inbound, faded -->
+              <circle cx="452" cy="56" r="20" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="452" y="60" text-anchor="middle" class="svg-label" style="font-size:10px">sybil</text>
+              <text x="452" y="92" text-anchor="middle" class="svg-label" style="font-size:9.5px">weight &asymp; 0</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>A typed web of trust.</b> Edge thickness is earned, not bought. A fresh
+          identity with no inbound promises &mdash; the <i>sybil</i> &mdash; carries almost no
+          weight, because reputation can only be accrued, never minted.</figcaption>
+      </figure>
+    </section>
+
+    <blockquote class="pull">A paper about keeping promises that, it turns out,
+    over&#8209;promised.</blockquote>
+
+    <!-- 3 — signature scorecard -->
+    <section class="block">
+      <p class="kicker">Kept &middot; not kept &middot; unknown</p>
+      <h2>Grading the paper with its own automaton</h2>
+      <p class="scorelead">It would be too easy to either celebrate or wince. So let me do the
+      thing the paper itself proposed: run the engine over its claims and assign each one a
+      state. No cheating on the dashed box.</p>
+
+      <div class="cards">
+
+        <div class="card kept">
+          <span class="state"><span class="glyph">1</span> kept</span>
+          <h3>The organisation&#8209;as&#8209;code bet</h3>
+          <p>I claimed groups would run themselves from declarative policy on a public chain.
+          Within two years that was a real, funded, much&#8209;hyped thing. The CFEther wasn&rsquo;t
+          a fantasy; it was early.</p>
+        </div>
+
+        <div class="card kept">
+          <span class="state"><span class="glyph">1</span> kept</span>
+          <h3>Trust, not action, is the unit</h3>
+          <p>Defining trust from promises rather than observed actions &mdash; and noticing that a
+          contract can never <em>coerce</em>, only commit &mdash; reads as plainly correct now. The
+          autonomy axiom was the right foundation.</p>
+        </div>
+
+        <div class="card kept">
+          <span class="state"><span class="glyph">1</span> kept</span>
+          <h3>Embrace the unknown state</h3>
+          <p>Refusing to pretend the system always knows the truth anticipated the oracle problem
+          and, later, optimistic verification with challenge windows. The chain genuinely
+          cannot see off&#8209;chain promises. Don&rsquo;t pretend it can.</p>
+        </div>
+
+        <div class="card broken">
+          <span class="state"><span class="glyph">0</span> not kept</span>
+          <h3>Typed, contextual trust would win</h3>
+          <p>It didn&rsquo;t. Mainstream on&#8209;chain governance became one&#8209;token&#8209;one&#8209;vote &mdash;
+          a plutocracy of transferable balances, the exact opposite of earned, contextual
+          reputation. The easy idea beat the better one.</p>
+        </div>
+
+        <div class="card broken">
+          <span class="state"><span class="glyph">0</span> not kept</span>
+          <h3>TelosVM, the &lambda; language, the calculi</h3>
+          <p>None of it shipped as a usable system. It was a tower of beautiful abstractions &mdash;
+          promise machines, virtual machines, trust calculi &mdash; that mostly promised and
+          didn&rsquo;t keep. I mistook a vocabulary for a result.</p>
+        </div>
+
+        <div class="card broken">
+          <span class="state"><span class="glyph">0</span> not kept</span>
+          <h3>The roaming&#8209;agent future</h3>
+          <p>Mansion&rsquo;s world of mobile agents walking between machines simply didn&rsquo;t
+          arrive. The whole middleware dream of that era quietly closed its doors. The agents
+          that came instead were nothing we pictured.</p>
+        </div>
+
+        <div class="card unknown">
+          <span class="state"><span class="glyph">?</span> unknown</span>
+          <h3>Will reputation finally beat tokens?</h3>
+          <p>Soulbound tokens<span class="snmark">6</span>, proof&#8209;of&#8209;personhood, reputation
+          graphs &mdash; the field keeps re&#8209;proposing exactly what the paper wanted. Whether any
+          of it displaces the token is still, genuinely, undecided.
+          <span class="sidenote"><span class="sn-n">6</span> Vitalik Buterin,
+          <a href="https://vitalik.eth.limo/general/2022/01/26/soulbound.html"><b><i>Soulbound</i></b></a> (2022) &mdash; the case for tokens that say who you
+          are, not what you can afford. I read it with the odd feeling of being scooped by my
+          own old footnote.</span></p>
+        </div>
+
+        <div class="card unknown">
+          <span class="state"><span class="glyph">?</span> unknown</span>
+          <h3>Is the old vocabulary right for what I&rsquo;m building now?</h3>
+          <p>&ldquo;A network of voluntarily cooperating agents &mdash; human, machine, or
+          inanimate.&rdquo; The line fits the systems I work on today better than the ones I
+          wrote it for. Whether promise theory is their right grammar, or just a familiar one,
+          I honestly can&rsquo;t tell yet.</p>
+        </div>
+
+        <div class="card unknown">
+          <span class="state"><span class="glyph">?</span> unknown</span>
+          <h3>Does any of it converge?</h3>
+          <p>The whole framework assumed the system settles into a desired state, CFEngine&#8209;style.
+          Twelve years of watching these networks, I am no longer sure they have a convergent
+          state at all. The engine keeps running.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="block">
+      <p class="kicker">In hindsight</p>
+      <h2>What I got wrong about what was hard</h2>
+
+      <p>The deepest mistake wasn&rsquo;t any single prediction. It was where I located the
+      difficulty. I spent eight pages on the <em>calculus</em> &mdash; the logic, the model
+      checking, the typed graphs &mdash; as if trust were a thing you compute once the maths is
+      clean. The actual hard parts got a sentence each: bootstrapping trust from nothing,
+      surviving collusion, resisting the agent who spins up a thousand identities. Those turned
+      out to be the entire game. The maths was the easy 10%.</p>
+
+      <p>There&rsquo;s a particular melancholy in re&#8209;reading a young paper that was right
+      about the question and wrong about which part would matter. The world built the crude
+      version of my idea &mdash; money as governance &mdash; and skipped the careful version &mdash;
+      <em>trust as governance</em> &mdash; because the crude one fit on a token contract and the
+      careful one needed a society. I can&rsquo;t even be bitter about it. I&rsquo;d have shipped
+      the token too.</p>
+
+      <p>But here is the part that keeps me honest, and it isn&rsquo;t nostalgia. The careful
+      version of the idea &mdash; authority earned and contextual rather than bought &mdash; never
+      actually died. It just wasn&rsquo;t waiting in a whitepaper. These days I spend my time
+      trying to build it for real, and not in Amsterdam: closer to home, in a corner of the
+      namespace that wears its own two letters, for people who already had a working answer
+      centuries before any of us drew the map.</p>
+
+      <p>Where I&rsquo;m from there is an older democracy that rotates authority by generation,
+      binds its leaders with promises made out loud and in public, and measures a person&rsquo;s
+      standing by what they have kept rather than by what they hold. It is, give or take the
+      notation, the typed and contextual web of trust I once spent eight pages trying to define
+      &mdash; non&#8209;transferable, term&#8209;limited, earned. When I now read the canonical essays
+      arguing that on&#8209;chain reputation should reflect who you are and not what you can afford,
+      I recognise the destination. I also notice, quietly, that the road was walked long before
+      the map. I didn&rsquo;t invent the design. At best I&rsquo;m translating it onto rails that
+      an old proof of concept finally made real.</p>
+    </section>
+
+    <!-- coda -->
+    <section class="block">
+      <p class="kicker">Coda</p>
+      <p class="lead">When I wrote it, I thought <em>unknown</em> was a placeholder &mdash; a value
+      waiting to be resolved into a respectable 0 or 1 once the engine got around to it. I think
+      now it was the only honest entry in the whole state table. Most of what matters in a
+      system of promising agents is, at any given moment, not yet kept and not yet broken. Still
+      out. The grown&#8209;up move isn&rsquo;t to resolve it prematurely. It&rsquo;s to design for
+      living inside it.</p>
+      <p>So I&rsquo;ll leave the paper&rsquo;s own promise where it belongs &mdash; not finished,
+      but in the keeping of other hands now, in a place it never thought to name.</p>
+      <p class="sig">Still unknown &mdash; and that&rsquo;s the right answer.</p>
+    </section>
+
+  </div>
+  </div>
+
+  <footer>
+    <div class="wrap"><div class="col">
+      <p class="cite">From the original submission: ND Jebessa,
+        <span class="ttl">P2P Web of Trust Calculi and Promise Games</span>, March 2014 &mdash;
+        prepared for the ASCI A9 PhD course on distributed&#8209;systems design. With
+        affection for Mansion, for promise theory, and for an Ethereum that was still only a
+        promise.</p>
+    </div></div>
+  </footer>
+</main>
+
+</body>
+</html>
